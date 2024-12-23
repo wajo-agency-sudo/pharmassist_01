@@ -72,6 +72,13 @@ export function AppSidebar() {
   return (
     <Sidebar>
       <SidebarContent>
+        <div className="p-4 flex items-center">
+          <img 
+            src="/lovable-uploads/4c532493-f06a-4b62-acad-e54d32beb49e.png" 
+            alt="PharmAssist Logo" 
+            className="h-8 mix-blend-multiply"
+          />
+        </div>
         <SidebarGroup>
           <SidebarGroupLabel>PharmAssist</SidebarGroupLabel>
           <SidebarGroupContent>
