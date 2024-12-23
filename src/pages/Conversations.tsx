@@ -20,12 +20,12 @@ const Conversations = () => {
         {/* Left Column */}
         <div className="space-y-6">
           <div>
-            <h2 className="text-2xl font-semibold mb-4">Recent Conversations</h2>
-            <ConversationList />
-          </div>
-          <div>
             <h2 className="text-2xl font-semibold mb-4">AI Impact</h2>
             <AIEfficiency />
+          </div>
+          <div>
+            <h2 className="text-2xl font-semibold mb-4">Recent Conversations</h2>
+            <ConversationList />
           </div>
         </div>
 
