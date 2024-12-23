@@ -1,6 +1,5 @@
 import { ConversationList } from "@/components/ConversationList";
 import { PendingInquiries } from "@/components/PendingInquiries";
-import { UrgentActions } from "@/components/conversations/UrgentActions";
 
 const Conversations = () => {
   return (
@@ -23,12 +22,9 @@ const Conversations = () => {
             <PendingInquiries />
           </div>
         </div>
-        <div>
-          <UrgentActions />
-        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Conversations;

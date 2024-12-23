@@ -110,10 +110,7 @@ export function ConversationCard({
               placeholder="Add a note..."
               value={notes[conversation.id] || ""}
               onChange={(e) =>
-                setNotes((prev) => ({
-                  ...prev,
-                  [conversation.id]: e.target.value,
-                }))
+                setNotes({ ...notes, [conversation.id]: e.target.value })
               }
             />
             <Button size="sm" onClick={() => handleAddNote(conversation.id)}>
