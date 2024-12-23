@@ -1,4 +1,4 @@
-import { Home, MessageSquare, DollarSign, Package, AlertOctagon, Users, BookOpen, FileText } from "lucide-react";
+import { Home, MessageSquare, DollarSign, Package, AlertOctagon, Users, BookOpen, FileText, HeadsetIcon, Settings, User } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -9,6 +9,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 
 const items = [
@@ -54,6 +55,19 @@ const items = [
   },
 ];
 
+const bottomItems = [
+  {
+    title: "Support",
+    url: "/support",
+    icon: HeadsetIcon,
+  },
+  {
+    title: "Settings",
+    url: "/settings",
+    icon: Settings,
+  },
+];
+
 export function AppSidebar() {
   return (
     <Sidebar>
@@ -75,6 +89,40 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        <div className="mt-auto">
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {bottomItems.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton asChild>
+                      <Link to={item.url}>
+                        <item.icon className="h-4 w-4" />
+                        <span>{item.title}</span>
+                      </Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+
+          <div className="p-4 border-t">
+            <Link to="/profile" className="flex items-center gap-3">
+              <Avatar className="h-8 w-8">
+                <AvatarImage src="/placeholder.svg" />
+                <AvatarFallback>
+                  <User className="h-4 w-4" />
+                </AvatarFallback>
+              </Avatar>
+              <div className="flex flex-col">
+                <span className="text-sm font-medium">Profile</span>
+                <span className="text-xs text-muted-foreground">profile@email.com</span>
+              </div>
+            </Link>
+          </div>
+        </div>
       </SidebarContent>
     </Sidebar>
   );
