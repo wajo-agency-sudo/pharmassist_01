@@ -18,7 +18,11 @@ export function SalesOverview() {
       </CardHeader>
       <CardContent>
         <div className="grid gap-4">
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
+            <div>
+              <p className="text-sm text-muted-foreground">Total Sales</p>
+              <p className="text-2xl font-bold">$124,890</p>
+            </div>
             <div>
               <p className="text-sm text-muted-foreground">Total Conversations</p>
               <p className="text-2xl font-bold">1,248</p>
