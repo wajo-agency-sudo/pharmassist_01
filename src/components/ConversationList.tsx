@@ -16,6 +16,7 @@ interface Conversation {
   time: string;
   unread: boolean;
   messages: Message[];
+  channel: string;
 }
 
 const mockConversations: Conversation[] = [
@@ -25,6 +26,7 @@ const mockConversations: Conversation[] = [
     lastMessage: "I need information about my prescription",
     time: "5m ago",
     unread: true,
+    channel: "whatsapp",
     messages: [
       {
         sender: "patient",
@@ -54,6 +56,7 @@ const mockConversations: Conversation[] = [
     lastMessage: "When will my order be ready?",
     time: "1h ago",
     unread: false,
+    channel: "chatbot",
     messages: [
       {
         sender: "patient",
@@ -73,6 +76,7 @@ const mockConversations: Conversation[] = [
     lastMessage: "Thank you for the information",
     time: "2h ago",
     unread: false,
+    channel: "social",
     messages: [
       {
         sender: "patient",
@@ -88,7 +92,11 @@ const mockConversations: Conversation[] = [
   },
 ];
 
-export function ConversationList() {
+interface ConversationListProps {
+  channel?: string;
+}
+
+export function ConversationList({ channel = "all" }: ConversationListProps) {
   const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
 
@@ -97,11 +105,15 @@ export function ConversationList() {
     setDialogOpen(true);
   };
 
+  const filteredConversations = channel === "all" 
+    ? mockConversations 
+    : mockConversations.filter(conv => conv.channel === channel);
+
   return (
     <>
       <ScrollArea className="h-[400px] rounded-md border p-4 bg-white">
         <div className="space-y-4">
-          {mockConversations.map((conversation) => (
+          {filteredConversations.map((conversation) => (
             <div
               key={conversation.id}
               className={`flex items-center space-x-4 rounded-lg p-3 transition-colors hover:bg-secondary cursor-pointer ${

@@ -5,15 +5,32 @@ import { KeywordTrends } from "@/components/conversations/KeywordTrends";
 import { QuestionHandling } from "@/components/conversations/QuestionHandling";
 import { AIEfficiency } from "@/components/conversations/AIEfficiency";
 import { TrendsInsights } from "@/components/conversations/TrendsInsights";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useState } from "react";
 
 const Conversations = () => {
+  const [selectedChannel, setSelectedChannel] = useState<string>("all");
+
   return (
     <div className="p-8 space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">Conversations</h1>
-        <p className="text-muted-foreground">
-          Manage and respond to patient inquiries
-        </p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Conversations</h1>
+          <p className="text-muted-foreground">
+            Manage and respond to patient inquiries
+          </p>
+        </div>
+        <Select value={selectedChannel} onValueChange={setSelectedChannel}>
+          <SelectTrigger className="w-[180px]">
+            <SelectValue placeholder="Select channel" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Channels</SelectItem>
+            <SelectItem value="whatsapp">WhatsApp</SelectItem>
+            <SelectItem value="chatbot">Chatbot</SelectItem>
+            <SelectItem value="social">Social Media</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -21,11 +38,11 @@ const Conversations = () => {
         <div className="space-y-6">
           <div>
             <h2 className="text-2xl font-semibold mb-4">AI Impact</h2>
-            <AIEfficiency />
+            <AIEfficiency channel={selectedChannel} />
           </div>
           <div>
             <h2 className="text-2xl font-semibold mb-4">Recent Conversations</h2>
-            <ConversationList />
+            <ConversationList channel={selectedChannel} />
           </div>
         </div>
 
@@ -33,11 +50,11 @@ const Conversations = () => {
         <div className="space-y-6">
           <div>
             <h2 className="text-2xl font-semibold mb-4">Conversation Volume</h2>
-            <ConversationVolume />
+            <ConversationVolume channel={selectedChannel} />
           </div>
           <div>
             <h2 className="text-2xl font-semibold mb-4">Question Handling</h2>
-            <QuestionHandling />
+            <QuestionHandling channel={selectedChannel} />
           </div>
         </div>
       </div>
@@ -46,15 +63,15 @@ const Conversations = () => {
       <div className="grid gap-6 md:grid-cols-3">
         <div>
           <h2 className="text-2xl font-semibold mb-4">Top Questions</h2>
-          <TopQuestions />
+          <TopQuestions channel={selectedChannel} />
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-4">Keyword Trends</h2>
-          <KeywordTrends />
+          <KeywordTrends channel={selectedChannel} />
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-4">Trends & Insights</h2>
-          <TrendsInsights />
+          <TrendsInsights channel={selectedChannel} />
         </div>
       </div>
     </div>
