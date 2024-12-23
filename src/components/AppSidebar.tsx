@@ -8,6 +8,7 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Link, useLocation } from "react-router-dom";
@@ -70,6 +71,11 @@ const bottomItems = [
 
 export function AppSidebar() {
   const location = useLocation();
+  const { setOpenMobile } = useSidebar();
+
+  const handleLinkClick = () => {
+    setOpenMobile(false);
+  };
 
   return (
     <Sidebar>
@@ -91,7 +97,7 @@ export function AppSidebar() {
                     asChild
                     className={location.pathname === item.url ? "bg-[#d9f7ea] text-primary" : ""}
                   >
-                    <Link to={item.url}>
+                    <Link to={item.url} onClick={handleLinkClick}>
                       <item.icon className="h-4 w-4" />
                       <span>{item.title}</span>
                     </Link>
@@ -112,7 +118,7 @@ export function AppSidebar() {
                       asChild
                       className={location.pathname === item.url ? "bg-[#d9f7ea] text-primary" : ""}
                     >
-                      <Link to={item.url}>
+                      <Link to={item.url} onClick={handleLinkClick}>
                         <item.icon className="h-4 w-4" />
                         <span>{item.title}</span>
                       </Link>
@@ -124,7 +130,7 @@ export function AppSidebar() {
           </SidebarGroup>
 
           <div className="p-4 border-t">
-            <Link to="/profile" className="flex items-center gap-3">
+            <Link to="/profile" className="flex items-center gap-3" onClick={handleLinkClick}>
               <Avatar className="h-8 w-8">
                 <AvatarImage src="/placeholder.svg" />
                 <AvatarFallback>
