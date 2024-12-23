@@ -93,4 +93,9 @@
     background: radial-gradient(circle, #ffffff 0%, #d9f7ea 49%, #ffffff 90%);
     min-height: 100vh;
   }
+
+  /* Add white background for mobile navigation */
+  [data-mobile="true"][data-sidebar="sidebar"] {
+    @apply bg-white;
+  }
 }
