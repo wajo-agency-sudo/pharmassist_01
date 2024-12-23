@@ -4,15 +4,37 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User, Mail, Briefcase, MapPin } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { useState, useRef } from "react";
 
 const Profile = () => {
   const { toast } = useToast();
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [profileImage, setProfileImage] = useState("/lovable-uploads/0f80e0fa-428b-4a89-b29c-02d0e527a4f1.png");
 
   const handleSave = () => {
     toast({
       title: "Profile updated",
       description: "Your profile information has been saved successfully.",
     });
+  };
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfileImage(reader.result as string);
+        toast({
+          title: "Profile picture updated",
+          description: "Your profile picture has been changed successfully.",
+        });
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleChangeClick = () => {
+    fileInputRef.current?.click();
   };
 
   return (
@@ -27,12 +49,23 @@ const Profile = () => {
           </CardHeader>
           <CardContent className="flex items-center gap-4">
             <Avatar className="h-24 w-24">
-              <AvatarImage src="/lovable-uploads/0f80e0fa-428b-4a89-b29c-02d0e527a4f1.png" alt="Profile picture" />
+              <AvatarImage src={profileImage} alt="Profile picture" />
               <AvatarFallback>
                 <User className="h-12 w-12" />
               </AvatarFallback>
             </Avatar>
-            <Button variant="outline">Change Picture</Button>
+            <div>
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleImageChange}
+                accept="image/*"
+                className="hidden"
+              />
+              <Button variant="outline" onClick={handleChangeClick}>
+                Change Picture
+              </Button>
+            </div>
           </CardContent>
         </Card>
 
