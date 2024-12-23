@@ -8,6 +8,7 @@ import { AppSidebar } from "@/components/AppSidebar";
 import Index from "./pages/Index";
 import Conversations from "./pages/Conversations";
 import Sales from "./pages/Sales";
+import Stock from "./pages/Stock";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
                 <Route path="/" element={<Index />} />
                 <Route path="/conversations" element={<Conversations />} />
                 <Route path="/sales" element={<Sales />} />
+                <Route path="/stock" element={<Stock />} />
               </Routes>
             </main>
           </div>
