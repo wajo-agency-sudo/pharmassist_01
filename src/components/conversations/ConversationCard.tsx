@@ -67,7 +67,7 @@ export function ConversationCard({
   };
 
   return (
-    <div className="rounded-lg border p-4 space-y-4 hover:shadow-md transition-shadow">
+    <div className="rounded-lg border p-4 space-y-4 hover:shadow-md transition-shadow bg-white">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           {getChannelIcon(conversation.channel)}
@@ -112,6 +112,7 @@ export function ConversationCard({
               onChange={(e) =>
                 setNotes({ ...notes, [conversation.id]: e.target.value })
               }
+              className="bg-white"
             />
             <Button size="sm" onClick={() => handleAddNote(conversation.id)}>
               Save Note

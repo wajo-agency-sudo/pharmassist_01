@@ -27,10 +27,10 @@ const inquiries = [
 
 export function PendingInquiries() {
   return (
-    <ScrollArea className="h-[200px]">
+    <ScrollArea className="h-[200px] bg-white p-4 rounded-lg border">
       <div className="space-y-4">
         {inquiries.map((inquiry) => (
-          <div key={inquiry.id} className="flex items-start justify-between space-x-4">
+          <div key={inquiry.id} className="flex items-start justify-between space-x-4 bg-white p-3 rounded-lg">
             <div className="space-y-1">
               <p className="text-sm font-medium leading-none">{inquiry.patient}</p>
               <p className="text-sm text-muted-foreground">{inquiry.message}</p>

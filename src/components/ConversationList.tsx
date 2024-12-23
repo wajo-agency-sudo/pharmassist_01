@@ -35,13 +35,13 @@ const mockConversations: Conversation[] = [
 
 export function ConversationList() {
   return (
-    <ScrollArea className="h-[400px] rounded-md border p-4">
+    <ScrollArea className="h-[400px] rounded-md border p-4 bg-white">
       <div className="space-y-4">
         {mockConversations.map((conversation) => (
           <div
             key={conversation.id}
             className={`flex items-center space-x-4 rounded-lg p-3 transition-colors hover:bg-secondary cursor-pointer ${
-              conversation.unread ? "bg-secondary" : ""
+              conversation.unread ? "bg-secondary" : "bg-white"
             }`}
           >
             <div className="relative">
