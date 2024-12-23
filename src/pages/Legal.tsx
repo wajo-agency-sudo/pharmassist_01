@@ -73,7 +73,7 @@ const Legal = () => {
       {/* Profile Section with Avatar */}
       <div className="flex items-center gap-4 mb-6">
         <Avatar className="h-12 w-12">
-          <AvatarImage src="/lovable-uploads/1b862ad0-1e3b-471f-9097-7d16ce37f7f3.png" alt="Legal advisor" data-component="AvatarImage" />
+          <AvatarImage src="/lovable-uploads/e791ea86-9206-4d41-9fee-d2474ad8fc86.png" alt="Legal advisor" data-component="AvatarImage" />
           <AvatarFallback>LA</AvatarFallback>
         </Avatar>
         <div>
