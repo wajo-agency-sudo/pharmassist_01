@@ -19,7 +19,18 @@ const mockData = [
   },
 ];
 
-export function QuestionHandling() {
+interface QuestionHandlingProps {
+  channel?: string;
+}
+
+export function QuestionHandling({ channel = "all" }: QuestionHandlingProps) {
+  const getFilteredData = () => {
+    if (channel === "all") return mockData;
+    return mockData.filter(item => 
+      item.channel.toLowerCase() === channel.toLowerCase()
+    );
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex justify-end gap-2">
@@ -39,7 +50,7 @@ export function QuestionHandling() {
 
       <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={mockData}>
+          <BarChart data={getFilteredData()}>
             <XAxis dataKey="channel" />
             <YAxis />
             <Tooltip />

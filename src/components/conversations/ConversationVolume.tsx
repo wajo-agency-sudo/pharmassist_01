@@ -11,7 +11,20 @@ const mockData = [
   { date: "Sun", whatsapp: 15, email: 8, instagram: 5 },
 ];
 
-export function ConversationVolume() {
+interface ConversationVolumeProps {
+  channel?: string;
+}
+
+export function ConversationVolume({ channel = "all" }: ConversationVolumeProps) {
+  const getFilteredData = () => {
+    if (channel === "all") return mockData;
+    
+    return mockData.map(item => ({
+      date: item.date,
+      [channel.toLowerCase()]: item[channel.toLowerCase() as keyof typeof item],
+    }));
+  };
+
   return (
     <div className="space-y-4">
       <div className="flex justify-end">
@@ -29,13 +42,25 @@ export function ConversationVolume() {
       
       <div className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={mockData}>
+          <LineChart data={getFilteredData()}>
             <XAxis dataKey="date" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
             <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
             <Tooltip />
-            <Line type="monotone" dataKey="whatsapp" stroke="#25D366" strokeWidth={2} name="WhatsApp" />
-            <Line type="monotone" dataKey="email" stroke="#EA4335" strokeWidth={2} name="Email" />
-            <Line type="monotone" dataKey="instagram" stroke="#E1306C" strokeWidth={2} name="Instagram" />
+            {channel === "all" ? (
+              <>
+                <Line type="monotone" dataKey="whatsapp" stroke="#25D366" strokeWidth={2} name="WhatsApp" />
+                <Line type="monotone" dataKey="email" stroke="#EA4335" strokeWidth={2} name="Email" />
+                <Line type="monotone" dataKey="instagram" stroke="#E1306C" strokeWidth={2} name="Instagram" />
+              </>
+            ) : (
+              <Line 
+                type="monotone" 
+                dataKey={channel.toLowerCase()} 
+                stroke={channel === "whatsapp" ? "#25D366" : channel === "email" ? "#EA4335" : "#E1306C"} 
+                strokeWidth={2} 
+                name={channel} 
+              />
+            )}
           </LineChart>
         </ResponsiveContainer>
       </div>

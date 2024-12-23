@@ -34,11 +34,10 @@ const Conversations = () => {
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
-        {/* Left Column */}
         <div className="space-y-6">
           <div>
             <h2 className="text-2xl font-semibold mb-4">AI Impact</h2>
-            <AIEfficiency channel={selectedChannel} />
+            <AIEfficiency />
           </div>
           <div>
             <h2 className="text-2xl font-semibold mb-4">Recent Conversations</h2>
@@ -46,7 +45,6 @@ const Conversations = () => {
           </div>
         </div>
 
-        {/* Right Column */}
         <div className="space-y-6">
           <div>
             <h2 className="text-2xl font-semibold mb-4">Conversation Volume</h2>
@@ -59,19 +57,18 @@ const Conversations = () => {
         </div>
       </div>
 
-      {/* Full Width Section */}
       <div className="grid gap-6 md:grid-cols-3">
         <div>
           <h2 className="text-2xl font-semibold mb-4">Top Questions</h2>
-          <TopQuestions channel={selectedChannel} />
+          <TopQuestions />
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-4">Keyword Trends</h2>
-          <KeywordTrends channel={selectedChannel} />
+          <KeywordTrends />
         </div>
         <div>
           <h2 className="text-2xl font-semibold mb-4">Trends & Insights</h2>
-          <TrendsInsights channel={selectedChannel} />
+          <TrendsInsights />
         </div>
       </div>
     </div>
