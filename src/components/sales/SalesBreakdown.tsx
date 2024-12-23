@@ -13,7 +13,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 
 export function SalesBreakdown() {
   return (
-    <Card>
+    <Card className="bg-white">
       <CardHeader>
         <CardTitle>Sales Breakdown</CardTitle>
       </CardHeader>

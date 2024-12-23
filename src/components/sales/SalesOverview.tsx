@@ -12,7 +12,7 @@ const data = [
 
 export function SalesOverview() {
   return (
-    <Card>
+    <Card className="bg-white">
       <CardHeader>
         <CardTitle>Sales Overview</CardTitle>
       </CardHeader>

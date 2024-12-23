@@ -11,7 +11,7 @@ const data = [
 
 export function ProductSales() {
   return (
-    <Card>
+    <Card className="bg-white">
       <CardHeader>
         <CardTitle>Product Sales</CardTitle>
       </CardHeader>

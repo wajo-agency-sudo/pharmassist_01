@@ -9,7 +9,7 @@ const data = [
 
 export function ServiceSales() {
   return (
-    <Card>
+    <Card className="bg-white">
       <CardHeader>
         <CardTitle>Service Appointments</CardTitle>
       </CardHeader>

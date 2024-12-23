@@ -9,7 +9,7 @@ const data = [
 
 export function ConversionFunnel() {
   return (
-    <Card>
+    <Card className="bg-white">
       <CardHeader>
         <CardTitle>Conversion Funnel</CardTitle>
       </CardHeader>

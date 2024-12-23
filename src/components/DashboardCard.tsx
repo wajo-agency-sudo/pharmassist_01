@@ -9,7 +9,7 @@ interface DashboardCardProps {
 
 export function DashboardCard({ title, value, icon, description }: DashboardCardProps) {
   return (
-    <Card className="hover:shadow-lg transition-shadow bg-white">
+    <Card className="bg-white hover:shadow-lg transition-shadow">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
         <CardTitle className="text-sm font-medium">{title}</CardTitle>
         {icon}
