@@ -10,8 +10,8 @@ const Index = () => {
     <div className="p-8 space-y-8">
       <div className="flex items-center gap-4">
         <img 
-          src="/lovable-uploads/0c4017a0-2553-460f-a86a-c4aea994a62c.png" 
-          alt="Logo" 
+          src="/lovable-uploads/fcee0f55-0090-4be3-a7a2-81e7ca162465.png" 
+          alt="PharmAssist Logo" 
           className="h-12 mix-blend-multiply"
         />
         <p className="text-muted-foreground">Welcome back! Here's your pharmacy's overview.</p>
