@@ -34,7 +34,7 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
@@ -90,7 +90,7 @@
 
   body {
     @apply bg-background text-foreground;
-    background: radial-gradient(circle, #ffffff 0%, #d9f7ea 49%, #ffffff 90%);
+    background: #ffffff;
     min-height: 100vh;
   }
 

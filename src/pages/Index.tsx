@@ -42,7 +42,7 @@ const Index = () => {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         <div className="col-span-2">
-          <div className="rounded-lg border bg-card p-6">
+          <div className="rounded-lg border bg-white p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold">Sales Trends</h2>
               <Button variant="outline" size="sm">
@@ -54,7 +54,7 @@ const Index = () => {
         </div>
         
         <div className="space-y-6">
-          <div className="rounded-lg border bg-card p-6">
+          <div className="rounded-lg border bg-white p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold">Pending Inquiries</h2>
               <Button variant="outline" size="sm">
@@ -64,7 +64,7 @@ const Index = () => {
             <PendingInquiries />
           </div>
 
-          <div className="rounded-lg border bg-card p-6">
+          <div className="rounded-lg border bg-white p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-lg font-semibold">Stock Alerts</h2>
               <Button variant="outline" size="sm">
