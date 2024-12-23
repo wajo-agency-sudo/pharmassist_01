@@ -1,4 +1,5 @@
 import { PatientList } from "@/components/patients/PatientList";
+import { DatabaseIntegration } from "@/components/patients/DatabaseIntegration";
 
 const Patients = () => {
   return (
@@ -9,7 +10,13 @@ const Patients = () => {
           Manage and view patient information and conversation history
         </p>
       </div>
-      <PatientList />
+      
+      <div className="grid gap-6 md:grid-cols-[1fr_300px]">
+        <PatientList />
+        <div className="space-y-6">
+          <DatabaseIntegration />
+        </div>
+      </div>
     </div>
   );
 };
