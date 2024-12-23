@@ -51,7 +51,11 @@ const Profile = () => {
             <Avatar className="h-24 w-24">
               <AvatarImage src={profileImage} alt="Profile picture" />
               <AvatarFallback>
-                <User className="h-12 w-12" />
+                <img 
+                  src={profileImage} 
+                  alt="Profile picture fallback"
+                  className="h-full w-full object-cover"
+                />
               </AvatarFallback>
             </Avatar>
             <div>
