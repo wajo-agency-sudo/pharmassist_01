@@ -5,7 +5,7 @@ import { MetricsChart } from "@/components/MetricsChart";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background p-8">
+    <div className="p-8">
       <div className="space-y-8">
         <div>
           <h1 className="text-3xl font-bold tracking-tight">PharmAssist Dashboard</h1>
