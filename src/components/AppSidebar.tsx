@@ -3,8 +3,8 @@ import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
-  SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -89,7 +89,7 @@ export function AppSidebar() {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     asChild
-                    className={location.pathname === item.url ? "bg-[#F2FCE2] text-primary" : ""}
+                    className={location.pathname === item.url ? "bg-[#d9f7ea] text-primary" : ""}
                   >
                     <Link to={item.url}>
                       <item.icon className="h-4 w-4" />
@@ -110,7 +110,7 @@ export function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton 
                       asChild
-                      className={location.pathname === item.url ? "bg-[#F2FCE2] text-primary" : ""}
+                      className={location.pathname === item.url ? "bg-[#d9f7ea] text-primary" : ""}
                     >
                       <Link to={item.url}>
                         <item.icon className="h-4 w-4" />
