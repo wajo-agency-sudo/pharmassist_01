@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Legal = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -70,6 +70,18 @@ const Legal = () => {
         </AlertDescription>
       </Alert>
 
+      {/* Profile Section with Avatar */}
+      <div className="flex items-center gap-4 mb-6">
+        <Avatar className="h-12 w-12">
+          <AvatarImage src="/lovable-uploads/b821831b-15e8-4418-baae-aae80d51cbdf.png" alt="Legal advisor" />
+          <AvatarFallback>LA</AvatarFallback>
+        </Avatar>
+        <div>
+          <h3 className="font-semibold">Legal Advisor</h3>
+          <p className="text-sm text-muted-foreground">Available for consultation</p>
+        </div>
+      </div>
+
       {/* Search and Filter Section */}
       <div className="flex items-center space-x-4 mb-6">
         <div className="relative flex-1">
@@ -85,7 +97,6 @@ const Legal = () => {
 
       {/* Main Content */}
       <div className="grid gap-6 md:grid-cols-[2fr_1fr]">
-        {/* Left Column - Legal Updates */}
         <div className="space-y-6">
           <Card>
             <CardHeader>
@@ -130,8 +141,7 @@ const Legal = () => {
             </CardContent>
           </Card>
         </div>
-
-        {/* Right Column - External Resources & Contact */}
+        
         <div className="space-y-6">
           <Card>
             <CardHeader>
