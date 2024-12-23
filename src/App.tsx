@@ -11,6 +11,7 @@ import Sales from "./pages/Sales";
 import Stock from "./pages/Stock";
 import UrgentActions from "./pages/UrgentActions";
 import Patients from "./pages/Patients";
+import Library from "./pages/Library";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
                 <Route path="/stock" element={<Stock />} />
                 <Route path="/urgent" element={<UrgentActions />} />
                 <Route path="/patients" element={<Patients />} />
+                <Route path="/library" element={<Library />} />
               </Routes>
             </main>
           </div>
