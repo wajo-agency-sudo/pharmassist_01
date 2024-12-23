@@ -47,16 +47,16 @@ export function PatientList() {
   const [selectedPatient, setSelectedPatient] = useState<string | null>(null);
 
   return (
-    <div className="space-y-6">
-      <div className="rounded-lg border bg-white">
+    <div className="space-y-4 md:space-y-6">
+      <div className="rounded-lg border bg-white overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
               <TableHead>Patient</TableHead>
-              <TableHead>Contact</TableHead>
-              <TableHead>Last Contact</TableHead>
+              <TableHead className="hidden md:table-cell">Contact</TableHead>
+              <TableHead className="hidden md:table-cell">Last Contact</TableHead>
               <TableHead>Status</TableHead>
-              <TableHead>Conversations</TableHead>
+              <TableHead className="hidden sm:table-cell">Conversations</TableHead>
               <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -65,15 +65,18 @@ export function PatientList() {
               <TableRow key={patient.id}>
                 <TableCell>
                   <div className="flex items-center gap-2">
-                    <div className="h-8 w-8 rounded-full bg-secondary flex items-center justify-center">
+                    <div className="h-8 w-8 rounded-full bg-secondary flex items-center justify-center shrink-0">
                       <User className="h-4 w-4" />
                     </div>
                     <div>
                       <div className="font-medium">{patient.name}</div>
+                      <div className="md:hidden text-xs text-muted-foreground">
+                        {patient.email}
+                      </div>
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="hidden md:table-cell">
                   <div className="space-y-1">
                     <div className="flex items-center gap-1">
                       <Mail className="h-4 w-4" />
@@ -85,7 +88,7 @@ export function PatientList() {
                     </div>
                   </div>
                 </TableCell>
-                <TableCell>
+                <TableCell className="hidden md:table-cell">
                   <div className="flex items-center gap-1">
                     <Clock className="h-4 w-4" />
                     <span>{patient.lastContact}</span>
@@ -98,7 +101,7 @@ export function PatientList() {
                     {patient.status}
                   </Badge>
                 </TableCell>
-                <TableCell>
+                <TableCell className="hidden sm:table-cell">
                   <div className="flex items-center gap-1">
                     <MessageCircle className="h-4 w-4" />
                     <span>{patient.conversationCount}</span>
