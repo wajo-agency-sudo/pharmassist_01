@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { User, Mail, Briefcase, MapPin } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const { toast } = useToast();
@@ -39,7 +40,15 @@ const Profile = () => {
 
   return (
     <div className="container max-w-2xl py-8">
-      <h1 className="text-3xl font-bold tracking-tight mb-8">Profile Settings</h1>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold tracking-tight">Profile Settings</h1>
+        <Link 
+          to="/login" 
+          className="text-primary hover:underline"
+        >
+          Login
+        </Link>
+      </div>
 
       <div className="space-y-6">
         {/* Profile Picture Section */}
