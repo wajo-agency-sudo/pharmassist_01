@@ -1,4 +1,3 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SalesOverview } from "@/components/sales/SalesOverview";
 import { SalesBreakdown } from "@/components/sales/SalesBreakdown";
 import { ConversionFunnel } from "@/components/sales/ConversionFunnel";
