@@ -1,4 +1,4 @@
-import { Home, MessageSquare, DollarSign } from "lucide-react";
+import { Home, MessageSquare, DollarSign, Package, AlertOctagon, Users, BookOpen, FileText } from "lucide-react";
 import {
   Sidebar,
   SidebarContent,
@@ -26,6 +26,31 @@ const items = [
     title: "Sales",
     url: "/sales",
     icon: DollarSign,
+  },
+  {
+    title: "Stock Management",
+    url: "/stock",
+    icon: Package,
+  },
+  {
+    title: "Urgent Actions",
+    url: "/urgent",
+    icon: AlertOctagon,
+  },
+  {
+    title: "Patients",
+    url: "/patients",
+    icon: Users,
+  },
+  {
+    title: "Library",
+    url: "/library",
+    icon: BookOpen,
+  },
+  {
+    title: "Legal",
+    url: "/legal",
+    icon: FileText,
   },
 ];
 
