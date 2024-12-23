@@ -1,52 +1,77 @@
-import { MessageCircle, Users, TrendingUp, Clock } from "lucide-react";
+import { MessageCircle, Package, TrendingUp, AlertTriangle, ArrowRight } from "lucide-react";
 import { DashboardCard } from "@/components/DashboardCard";
-import { ConversationList } from "@/components/ConversationList";
-import { MetricsChart } from "@/components/MetricsChart";
+import { Button } from "@/components/ui/button";
+import { SalesTrendChart } from "@/components/SalesTrendChart";
+import { StockAlerts } from "@/components/StockAlerts";
+import { PendingInquiries } from "@/components/PendingInquiries";
 
 const Index = () => {
   return (
-    <div className="p-8">
-      <div className="space-y-8">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">PharmAssist Dashboard</h1>
-          <p className="text-muted-foreground">Welcome back! Here's your pharmacy's overview.</p>
-        </div>
+    <div className="p-8 space-y-8">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">PharmAssist Dashboard</h1>
+        <p className="text-muted-foreground">Welcome back! Here's your pharmacy's overview.</p>
+      </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <DashboardCard
-            title="Active Conversations"
-            value="12"
-            icon={<MessageCircle className="h-4 w-4 text-primary" />}
-            description="3 unread messages"
-          />
-          <DashboardCard
-            title="Total Patients"
-            value="1,234"
-            icon={<Users className="h-4 w-4 text-primary" />}
-            description="+12 this week"
-          />
-          <DashboardCard
-            title="Conversion Rate"
-            value="68%"
-            icon={<TrendingUp className="h-4 w-4 text-success" />}
-            description="+2.5% from last week"
-          />
-          <DashboardCard
-            title="Avg. Response Time"
-            value="4.2m"
-            icon={<Clock className="h-4 w-4 text-primary" />}
-            description="Within target range"
-          />
-        </div>
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <DashboardCard
+          title="Pending Inquiries"
+          value="8"
+          icon={<MessageCircle className="h-4 w-4 text-destructive" />}
+          description="3 urgent inquiries"
+        />
+        <DashboardCard
+          title="Low Stock Items"
+          value="12"
+          icon={<Package className="h-4 w-4 text-warning" />}
+          description="5 items critically low"
+        />
+        <DashboardCard
+          title="Sales Growth"
+          value="+15%"
+          icon={<TrendingUp className="h-4 w-4 text-success" />}
+          description="Compared to last month"
+        />
+        <DashboardCard
+          title="Expiring Soon"
+          value="6"
+          icon={<AlertTriangle className="h-4 w-4 text-warning" />}
+          description="Items expiring this week"
+        />
+      </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="col-span-2">
           <div className="rounded-lg border bg-card p-6">
-            <h2 className="text-lg font-semibold mb-4">Weekly Conversations</h2>
-            <MetricsChart />
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-semibold">Sales Trends</h2>
+              <Button variant="outline" size="sm">
+                View Details <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+            <SalesTrendChart />
           </div>
+        </div>
+        
+        <div className="space-y-6">
           <div className="rounded-lg border bg-card p-6">
-            <h2 className="text-lg font-semibold mb-4">Recent Conversations</h2>
-            <ConversationList />
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-semibold">Pending Inquiries</h2>
+              <Button variant="outline" size="sm">
+                View All <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+            <PendingInquiries />
+          </div>
+
+          <div className="rounded-lg border bg-card p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-semibold">Stock Alerts</h2>
+              <Button variant="outline" size="sm">
+                Manage Stock <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </div>
+            <StockAlerts />
           </div>
         </div>
       </div>
