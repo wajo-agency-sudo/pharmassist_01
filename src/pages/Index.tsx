@@ -12,7 +12,7 @@ const Index = () => {
         <img 
           src="/lovable-uploads/d04f18fa-f330-48f7-a73f-b79f46a5f9df.png" 
           alt="PharmAssist Logo" 
-          className="h-12"
+          className="h-12 mix-blend-multiply"
         />
         <div>
           <h1 className="text-3xl font-bold tracking-tight">PharmAssist Dashboard</h1>
